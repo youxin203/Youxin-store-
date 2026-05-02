@@ -1,31 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>Youxin Store</title>
-  <style>
-    body { font-family: Arial; margin: 0; background: #f5f5f5; }
-    header { background: black; color: white; padding: 15px; text-align: center; }
-    .products { display: flex; gap: 20px; padding: 20px; }
-    .card { background: white; padding: 10px; border-radius: 10px; width: 200px; }
-    img { width: 100%; }
-    button { background: black; color: white; padding: 10px; border: none; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youxin Store | متجر يوكين</title>
+    <style>
+        :root { --primary: #000; --secondary: #555; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background: #f9f9f9; color: #333; }
+        header { background: var(--primary); color: white; padding: 20px; text-align: center; position: sticky; top: 0; z-index: 100; }
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); padding-bottom: 20px; }
+        .card img { width: 100%; height: 250px; object-fit: cover; }
+        .card-content { padding: 15px; }
+        select, input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; }
+        button { width: 100%; background: var(--primary); color: white; border: none; padding: 12px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        button:hover { background: #333; }
+        .order-form { background: #eee; padding: 20px; border-radius: 15px; margin-top: 40px; }
+    </style>
 </head>
 <body>
 
 <header>
-  <h1>Youxin Store</h1>
+    <h1>Youxin Store 👟</h1>
 </header>
 
-<div class="products">
-  <div class="card">
-    <img src="https://via.placeholder.com/200">
-    <h3>Men Shoes</h3>
-    <p>$50</p>
-    <button>Add to cart</button>
-  </div>
+<div class="container">
+    <div class="product-grid">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="حذاء رياضي">
+            <div class="card-content">
+                <h3>حذاء نايك الرياضي - الإصدار المميز</h3>
+                <p>السعر: 75$</p>
+                <label>اختر المقاس:</label>
+                <select>
+                    <option>38</option><option>40</option><option>42</option><option>44</option>
+                </select>
+                <label>اختر اللون:</label>
+                <select>
+                    <option>أسود</option><option>أبيض</option><option>أحمر</option>
+                </select>
+                <button onclick="scrollToForm()">اطلب الآن</button>
+            </div>
+        </div>
+        </div>
+
+    <div class="order-form" id="order-form">
+        <h2>تأكيد الطلب 📝</h2>
+        <input type="text" placeholder="الاسم الكامل" required>
+        <input type="tel" placeholder="رقم الهاتف" required>
+        <input type="text" placeholder="العنوان بالتفصيل" required>
+        <button type="submit">إرسال الطلب عبر واتساب</button>
+    </div>
 </div>
+
+<script>
+    function scrollToForm() {
+        document.getElementById('order-form').scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
 
 </body>
 </html>
+
